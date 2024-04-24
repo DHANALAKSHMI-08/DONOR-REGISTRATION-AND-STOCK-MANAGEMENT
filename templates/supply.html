@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supply Blood</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3C0008;
+        }
+
+        .quote {
+            margin-top: 40px;
+            font-style: italic;
+            color: #000;
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: 	#87CEEB;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        
+        
+        
+    </style>
+</head>
+<body>
+    <h2>Supply Blood Units</h2>
+
+    <!-- Back Button -->
+    <button class="back-button" onclick="goBack()">Back</button>
+
+    <form action="/supply" method="post">
+        <label for="type">Blood Type:</label><br>
+        <input type="text" id="type" name="type" value=""><br>
+        
+        
+        
+        <label for="units">Units:</label><br>
+        <input type="number" id="units" name="units" value="0"><br>
+        <input type="submit" value="Supply">
+    </form>
+
+    <!-- Success Message -->
+    <div id="successMessage" style="display: none; color: #3C0008; font-weight: bold; margin-top: 10px;">
+        Supplied successfully!
+    </div>
+
+    <!-- JavaScript for Success Message -->
+   
+
+    <!-- Beautiful Quote -->
+    <div class="quote">
+        "The best way to find yourself is to lose yourself in the service of others." - Mahatma Gandhi
+    </div>
+    
+    
+    
+     <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        document.querySelector("form").addEventListener("submit", function() {
+            document.getElementById("successMessage").style.display = "block";
+        });
+    </script>
+</body>
+</html>
+

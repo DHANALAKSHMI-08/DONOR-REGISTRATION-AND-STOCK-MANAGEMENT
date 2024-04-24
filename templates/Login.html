@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+
+<head>
+
+<title>Login Page</title>
+
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+
+</head>
+
+<style>
+
+body {
+  background-color: 	#ff0000;
+}
+.wrapper{
+    align-items: center;
+    height: 100%;
+    display: flex;
+   
+}
+.image{
+    margin-top: 70px;
+    margin-left: 100px;
+    display: inline-block;
+}
+img{
+  display: block;
+    width:500px;
+    height:500px;
+    border-radius: 50%;
+}
+.container {
+    background-color: white;
+    box-shadow: 4px 4px 2px 2px grey;
+    opacity: 0.8;
+    height: 400px;
+    width: 500px;
+    margin-right: 150px;
+    margin-top: 100px;
+    border:2px solid grey;
+    border-radius: 20px;
+    padding: 50px 90px 90px 100px;
+    line-height: 30px;
+    position: static;
+}
+.input-field{
+
+    width: 70%;
+    padding:20px 20px;
+    margin:5px 0;
+    border-left:0;
+    border-top:0;
+    border-right:0;
+    border-bottom: 2px solid black;
+    outline:none;
+    background: transparent;
+    color:black;
+    font-size: 20px; /* Space between input boxes */
+
+}
+::placeholder {
+    color: black;
+    opacity: 100; 
+    font-size: 20px;
+  }
+  h1{
+    color:  rgb(126, 8, 8);
+  }
+
+.buttons {
+    
+    width: 75%;
+    padding: 5px 70px;
+    cursor: pointer;
+    display: block;
+    margin:20px -10px;
+    background:rgb(234, 233, 233) ;
+    box-shadow: 2px 2px 2px 0 rgb(126, 8, 8);
+    border: 0;
+    outline: none;
+    border-radius: 10px;
+    
+    font-weight:bold  ;
+    font-size: 20px;
+}
+    
+   
+    
+    
+   
+.login{
+    background: transparent;
+    border:0;
+    outline:none;
+    padding: 12px 10px;
+    font-size:20px;
+    color:black;
+    cursor:pointer;
+
+}
+
+    .buttons:hover {
+    background-color:rgb(126, 8, 8); 
+   
+    /* Background color on hover */
+
+}
+
+</style>
+
+<body>
+    <div class="wrapper">
+    <div class="image">
+        <img src="../images/loginpage.png" alt="blood donate">
+    </div>
+
+<div class="container">
+
+<h1><Strong>Welcome Admin!</Strong></h1>
+
+<form action="#" th:action="@{/login}" th:object="${user}" method="post">
+
+<div class="input-group">
+
+
+
+<input type="text" th:field="*{username}" class="input-field" placeholder='AdminName'/>
+
+</div>
+
+<div class="input-group">
+
+
+
+<input type="password" th:field="*{password}" class="input-field" placeholder='Password'/>
+
+</div>
+
+<div class="buttons">
+
+    <input type="submit" class="login" value="Login" />
+
+</div>
+
+</form>
+
+</div>
+</div>
+
+</body>
+
+</html>

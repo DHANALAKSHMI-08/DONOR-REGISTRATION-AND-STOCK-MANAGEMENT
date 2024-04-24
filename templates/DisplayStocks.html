@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border-bottom: 2px double #53000E;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color:#BC5C58;
+            color: #333;
+            font-weight: bold;
+        }
+
+        td {
+            background-color: #fff;
+            color: #555;
+        }
+         .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: 	#87CEEB;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+
+
+    </style>
+
+<body>
+ <h2>Stock Details</h2>
+
+<table>
+        <thead>
+            <tr>
+                <th>Blood Group</th>
+                
+                <th>Amount of blood in Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="v: ${viewstock}">
+              
+                <td th:text="${v.type}"></td>
+                <td th:text="${v.units}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+  <button class="back-button" onclick="goBack()">Back</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+</html>

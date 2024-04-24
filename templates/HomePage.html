@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our Website</title>
+    <style>
+        .wrapper {
+            align-items: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column; /* Align content in column */
+        }
+
+        .image {
+            margin-top: 80px; /* Adjusted margin for image */
+            display: inline-block;
+        }
+
+        img {
+            display: block;
+            width: 300px; /* Reduced image size */
+            height: 300px;
+            border-radius: 50%;
+        }
+
+        body {
+            background-color:  #dac17c ; /* Background color related to image */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #6d2e18; /* Navy blue background for navigation */
+            padding: 20px;
+            width: 100%; /* Full width navigation */
+            position: fixed; /* Fixed navigation at the top */
+            top: 0;
+            z-index: 1000; /* Ensure navigation stays on top */
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        li {
+            display: inline;
+            margin-right: 20px; /* spacing between nav items */
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff; /* White text color for links */
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #fff; /* White text color on hover */
+            background-color: #007bff; /* Blue background on hover */
+            border-radius: 5px;
+        }
+
+        .active {
+            color: #fff; /* White text color for active link */
+        }
+
+        .content {
+            text-align: center;
+            margin-top: 20px; /* Adjusted margin for content */
+        }
+
+        h1 {
+            color: #800000; /* bold color for heading */
+            margin-top: 10px; /* Adjusted margin for heading */
+        }
+
+        p {
+            margin-bottom: 20px; /* Added margin below paragraphs */
+        }
+
+        q em {
+            font-weight: bold; /* Emphasized text in bold */
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(to right, #ff5f6d, #ffc371); /* Gradient button */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: linear-gradient(to right, #ff6a00, #ee0979); /* Hover gradient */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="/Service">Services</a></li>
+            <li><a href="/Contactus">Contact Us</a></li>
+            <li><a href="/Aboutus">About Us</a></li>
+        </ul>
+    </nav>
+    <div class="wrapper">
+        <div class="image">
+            <img src="../images/userstockpage.jpg" alt="blood donate">
+        </div>
+        <div class="content">
+            <h1>Welcome to our website</h1>
+            <p>Welcome to our blood donation platform where you can make a difference in someone's life by donating blood.</p>
+            <p><q><em>Every drop counts. Your contribution can save lives.</em></q></p>
+            <p>Please select which group you would like to be a part of. Choose an option to continue the process.</p>
+            <div class="buttons">
+                <a href="/login" class="button">Admin</a>
+                <a href="/userLog" class="button">Donor</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

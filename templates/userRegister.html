@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE-edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NewUser</title>
+
+
+<style>
+ body {
+      background-color:#023047;
+       /* background: linear-gradient(to right, #41295a, #2f0743);*/
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .signup-box {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color:#FA9C1B; /* White background */
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .signup-box h2 {
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: BLACK; /* Dark grey color */
+    }
+
+    .user-box {
+      margin-bottom: 20px;
+    }
+
+    .user-box label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #555; /* Medium grey color */
+    }
+
+    .user-box input,
+    .user-box select {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .btn-submit {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background: linear-gradient(45deg, #ff6b6b, #ffa68a, #ffd700); /* Mix of bright colors */
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background: linear-gradient(45deg, #ff6b6b, #ffa68a, #ffd700, #ffb3b3); /* Hover effect */
+    }
+
+    .message {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #4caf50; /* Green success message color */
+    }
+
+    .log-in {
+      text-align: center;
+      margin-top: 20px;
+      color: #666; /* Dark grey for login link */
+    }
+
+    .log-in a {
+      color: #007bff; /* Blue color for login link */
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    
+
+</style>
+
+
+</head>
+
+<body>
+	<div class="signup-box">
+		<h2>User Registration</h2>
+		<form  id="registrationForm" th:action="@{/userLogin}" th:object="${userModel}" method="post"  >
+
+			<div class="user-box">
+			<label>UserName</label>
+				<input type="text" th:field="*{username}" class="form-control"
+					placeholder="User Name" required />
+			</div>
+
+			<div class="user-box">
+						<label>FullName</label>
+			
+				<input type="text" th:field="*{user_fullname}" class="form-control"
+					placeholder="Full Name" required />
+			</div>
+
+			<div class="user-box">
+			
+									<label>Age</label>
+			
+				<input type="number" th:field="*{Age}" class="form-control"
+					placeholder="Age" min="18" max="45" required />
+			</div>
+			<div class="user-box">
+			
+			
+			</div>
+			
+			
+			
+			
+			 
+			
+			<div class="user-box">
+			 <label>Gender</label>
+			 
+			<select id="Gender" name="Gender"  th:field="*{Gender}" class="form-control"  required>
+			 
+			 
+		  <option value="">Kindly Select the option</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+          </select>
+			</div>
+
+                
+			
+
+	<div class="user-box">
+	 <label>Blood Group</label>
+	<select id="BloodGroup" name="BloodGroup"  th:field="*{BloodGroup}" class="form-control"required>
+		<option value="">Kindly Select the option</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+        </select>
+			</div>
+
+			<div class="user-box">
+									<label>Mobile Number</label>
+			
+				<input type="text" th:field="*{user_mobile}" class="form-control"
+					placeholder="Mobile Number" pattern="[789][0-9]{9}" min="10"
+					required />
+			</div>
+
+			<div class="user-box">
+									<label>City</label>
+			
+				<input type="text" th:field="*{City}" class="form-control"
+					placeholder="City" required />
+			</div>
+
+			<div class="user-box">
+			
+									<label>Email</label>
+			
+				<input type="email" th:field="*{user_email}" class="form-control"
+					placeholder="Email" required />
+			</div>
+
+			<div class="user-box">
+			
+									<label>PassWord</label>
+			
+				<input type="password" th:field="*{password}" class="form-control"
+					placeholder="Password" required />
+			</div>
+
+			<div class="user-box">
+			
+									<label>Last Donation Date</label>
+			
+                <input type="date" th:field="*{lastDonationDate}" class="form-control"placeholder="Last Donation Date"  onchange="checkLastDonationDate()"  required />
+           <!-- <p id="errorMessage" style="color: red; display: none;"></p> -->
+            </div>
+
+			 <a class="submit" target="_blank"> <span></span> <span></span> <span></span>
+				<span></span>
+				<button type="submit" class="btn btn-primary">Submit</button>
+				<!--<p class="message" style="display: none;">Registered successfully!</p>  -->
+				
+			</a> 
+			
+							
+			
+
+			<div class="log-in">
+				<p>
+					Already have an account? <a class="log-in-link" target="_blank"
+						th:href="@{/userLog}"><strong>Log In</strong></a>
+				</p>
+			</div>
+		</form>
+</div>
+
+
+<script >
+
+
+
+function checkLastDonationDate() {
+    // Get the Last Donation Date input element
+    var lastDonationDateInput = document.getElementById("lastDonationDate");
+    
+    // Get the value of the Last Donation Date
+    var lastDonationDate = new Date(lastDonationDateInput.value);
+    
+    // Get the current date
+    var currentDate = new Date();
+    
+    // Calculate the difference in days
+    var timeDifference = Math.abs(currentDate - lastDonationDate);
+    var differenceInDays = Math.ceil(timeDifference / (1000 * 3600 * 24)); 
+    
+    // Check if the difference is less than 56 days
+    if (differenceInDays < 56) {
+        alert
+        ("You are not eligible to donate blood. Last donation should be at least 56 days ago.");
+        return false; // Prevent form submission
+    }
+    
+    return true; // Proceed with form submission
+}
+document.getElementById("registrationForm").addEventListener("submit", function(event) {
+    var isEligible = checkLastDonationDate();
+    if (!isEligible) {
+        event.preventDefault(); // Prevent form submission
+    } else {
+        alert("Form submitted successfully!"); // Show success message
+    }
+});
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

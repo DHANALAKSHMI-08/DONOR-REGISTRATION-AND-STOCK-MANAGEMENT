@@ -1,0 +1,198 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Welcome to our donor site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0px;
+            background-image:url('../images/pm.jpg');
+     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; 	 /* Background with linear gradient */
+        }
+        .navbar {
+            overflow: hidden;
+            background-color: #673147; /* Bright orange background color for navbar */
+            padding: 10px;
+            text-align: center;
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+        .navbar a {
+            display: inline-block;
+            color: white; /* White color for links */
+            text-decoration: none;
+            font-size: 17px;
+            margin: 0 10px;
+        }
+        .navbar a:hover {
+            background-color: #cc6600; /* Darker orange on hover */
+        }
+        .content {
+            text-align: center;
+            padding-top: 100px; /* Increased padding top */
+        }
+        .bold-heading {
+            font-weight: bold;
+            font-size: 32px; /* Larger font size for heading */
+            margin-top: 20px;
+            color:black; /* Dark color for heading */
+        }
+        .blood-group-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 40px; /* Increased margin top */
+            padding: 0 20px;
+        }
+        .blood-group-box {
+            width: 30%;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+background: linear-gradient(to top, #ffb3ba, #ffdfba, #ffffba, #baffc9, #bae1ff);
+  /*background: linear-gradient( #d66d75, #e29587); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333; /* Dark color for blood group titles */
+        }
+        .blood-group-list {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            color: #555; /* Medium color for blood group lists */
+        }
+        .blood-group-list-item {
+            margin-bottom: 5px;
+        }
+        .universal-donor,
+        .universal-receiver {
+background: linear-gradient(to top, #ffb3ba, #ffdfba, #ffffba, #baffc9, #bae1ff);
+            color: #000000; /* White color for text */
+            font-weight: bold; /* Bold text for universal donor and receiver */
+        }
+        .rare-blood-group {
+            background-color: #ffb3ff; /* Light pastel purple background color for rare blood groups */
+        }
+        .logout-btn {
+            text-align: right;
+            margin-right: 20px;
+        }
+        .logout-btn input {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: #ff3333; /* Bright red color for logout button */
+            color: white;
+            cursor: pointer;
+        }
+        .logout-btn input:hover {
+            background-color: #cc0000; /* Darker red on hover */
+        }
+        .quote {
+            margin-top: 40px; /* Space for quote */
+            font-style: italic; 
+             background: linear-gradient(to top, #3c3b3f, #605c3c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            
+            color:#ffffff;  /* Grey color for quote */
+            
+        }
+        
+        p
+        
+        {
+        	color:black;
+        
+        }
+        
+      
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a th:href="@{/user/homepage}">Home</a>
+        <a th:href="@{/donate}">Stock</a>
+        <!--<a th:href="@{/updateldd}">Check Eligibility</a>  -->
+        <div class="logout-btn">
+            <form th:action="@{/logoutdonor}" method="post">
+                <input type="submit" value="Logout" />
+            </form>
+        </div>
+    </div>
+    <div class="content">
+        <h1 class="bold-heading"  style="margin-top: 0px;">Welcome to Blood Bank</h1>
+        <p style="font-size: 18px;">Here are some important facts about blood groups:</p>
+        <div class="blood-group-container">
+            <div class="blood-group-box">
+                <h3 class="blood-group-title">A+</h3>
+                <ul class="blood-group-list">
+                    <li class="blood-group-list-item">Can donate to: A+, O+</li>
+                    <li class="blood-group-list-item">Can receive from: A+, A-, O+, O-</li>
+                </ul>
+            </div>
+            <div class="blood-group-box">
+                <h3 class="blood-group-title">A-</h3>
+                <ul class="blood-group-list">
+                    <li class="blood-group-list-item">Can donate to: A+, A-, AB+, AB-</li>
+                    <li class="blood-group-list-item">Can receive from: A-, O-</li>
+                </ul>
+            </div>
+            <div class="blood-group-box">
+                <h3 class="blood-group-title">B+</h3>
+                <ul class="blood-group-list">
+                    <li class="blood-group-list-item">Can donate to: B+, AB+</li>
+                    <li class="blood-group-list-item">Can receive from: B+, B-, O+, O-</li>
+                </ul>
+            </div>
+            <div class="blood-group-box">
+                <h3 class="blood-group-title">B-</h3>
+                <ul class="blood-group-list">
+                    <li class="blood-group-list-item">Can donate to: B+, B-, AB+, AB-</li>
+                    <li class="blood-group-list-item">Can receive from: B-, O-</li>
+                </ul>
+            </div>
+            <div class="blood-group-box universal-receiver">
+                <h3 class="blood-group-title">AB+</h3>
+                <ul class="blood-group-list">
+                    <li class="blood-group-list-item">Can donate to: AB+</li>
+                    <li class="blood-group-list-item">Can receive from: Everyone</li>
+                    <li class="blood-group-list-item">Universal Receiver</li>
+                </ul>
+            </div>
+            <div class="blood-group-box rare-blood-group">
+                <h3 class="blood-group-title">AB-</h3>
+                <ul class="blood-group-list">
+                    <li class="blood-group-list-item">Can donate to: AB+, AB-</li>
+                    <li class="blood-group-list-item">Can receive from: A-, B-, AB-, O-</li>
+                </ul>
+            </div>
+            <div class="blood-group-box rare-blood-group">
+                <h3 class="blood-group-title">O+</h3>
+                <ul class="blood-group-list">
+                    <li class="blood-group-list-item">Can donate to: A+, B+, AB+, O+</li>
+                    <li class="blood-group-list-item">Can receive from: O+, O-</li>
+                </ul>
+            </div>
+            <div class="blood-group-box universal-donor">
+                <h3 class="blood-group-title">O-</h3>
+                <ul class="blood-group-list">
+                    <li class="blood-group-list-item">Can donate to: Everyone</li>
+                    <li class="blood-group-list-item">Can receive from: O-</li>
+                    <li class="blood-group-list-item">Universal Donor</li>
+                </ul>
+            </div>
+        </div>
+        <p class="quote">"The blood you donate gives someone another chance at life. One day that someone may be a close relative, a friend, a loved one—or even you."</p>
+    </div>
+</body>
+</html>
+
